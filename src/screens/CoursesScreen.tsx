@@ -59,14 +59,22 @@ export const CoursesScreen: FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
-        <SelectorButton {...{ selectedTag, openModal }} />
+        <SelectorButton
+          testID="selector-button"
+          {...{ selectedTag, openModal }}
+        />
       </View>
       <View style={styles.centeredWrapper}>
         {isLoading ? (
-          <ActivityIndicator size="large" color={Colors.GRAY} />
+          <ActivityIndicator
+            testID="activity-indicator"
+            size="large"
+            color={Colors.GRAY}
+          />
         ) : (
           <View style={styles.listWrapper}>
             <FlatList
+              testID="flatlist"
               {...{ renderItem, keyExtractor }}
               ref={listRef}
               data={filteredCourses}
@@ -79,6 +87,7 @@ export const CoursesScreen: FC = () => {
       </View>
       <SelectorModal
         {...{ tags }}
+        testID="selector-modal"
         isVisible={modalVisible}
         selected={selectedTag}
         onSelect={onSelectTag}

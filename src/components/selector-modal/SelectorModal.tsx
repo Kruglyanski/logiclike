@@ -15,6 +15,7 @@ interface IProps {
   selected: string | null;
   onSelect: (tag: string | null) => void;
   onClose: () => void;
+  testID?: string;
 }
 
 const keyExtractor = (item: string) => item;
@@ -25,6 +26,7 @@ export const SelectorModal: FC<IProps> = ({
   selected,
   onSelect,
   onClose,
+  testID,
 }) => {
   const data = [ALL_THEMES_TITLE, ...tags];
 
