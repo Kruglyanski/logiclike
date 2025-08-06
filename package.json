@@ -9,8 +9,12 @@
     "start": "react-native start",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build:e2e": "detox build --configuration ios.sim.debug",
-    "test:e2e": "detox test --configuration ios.sim.debug"
+    "build:e2e:ios": "detox build --configuration ios.sim.debug",
+    "build:e2e:android": "detox build --configuration android.emu.debug",
+    "test:e2e:ios": "detox test --configuration ios.sim.debug",
+    "e2e:clean": "adb emu kill || true && killall -9 node || true && rm -rf /tmp/Detox*",
+    "test:e2e:emu:android": "detox test --configuration android.emu.debug",
+    "test:e2e:android": "detox test --configuration android.att.debug --loglevel trace"
   },
   "dependencies": {
     "@react-native-vector-icons/fontawesome6": "^12.1.0",

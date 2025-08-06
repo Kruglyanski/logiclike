@@ -2,6 +2,8 @@ import { device, element, by, expect } from 'detox';
 
 describe('Courses Screen E2E', () => {
   beforeAll(async () => {
+    //на андроиде тут падает((( detox официально эту версию не поддерживает на момент коммита
+    //в реакт нейтив 0.76.6 - работает при тех же конфигах
     await device.launchApp({ newInstance: true });
   });
 
