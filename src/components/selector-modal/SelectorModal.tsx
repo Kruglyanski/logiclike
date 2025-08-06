@@ -43,7 +43,7 @@ export const SelectorModal: FC<IProps> = ({
       <TagItem
         testID={testID ? `${testID}-tag-${item}` : undefined}
         isActive={item === selected || (item === ALL_THEMES_TITLE && !selected)}
-        {...{ onPress, item: `${testID}-tag-${item}` }}
+        {...{ onPress, item }}
       />
     ),
     [onPress, selected],

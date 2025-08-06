@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "build:e2e": "detox build --configuration ios.sim.debug",
+    "test:e2e": "detox test --configuration ios.sim.debug"
   },
   "dependencies": {
     "@react-native-vector-icons/fontawesome6": "^12.1.0",
