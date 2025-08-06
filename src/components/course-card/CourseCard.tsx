@@ -9,11 +9,11 @@ interface IProps {
 
 export const CourseCard: FC<IProps> = React.memo(({ course }) => {
   return (
-    <View style={[styles.card, { backgroundColor: course.bgColor }]}>
+    <View testID={`course-card-${course.id}`} style={[styles.card, { backgroundColor: course.bgColor }]}>
       <Image source={{ uri: course.image }} style={styles.image} />
       <View style={styles.fakeShadow}>
         <View style={styles.textWrapper}>
-          <Text style={styles.text}>{course.name}</Text>
+          <Text style={styles.text}>{`course-card-${course.id}`}</Text>
         </View>
       </View>
     </View>

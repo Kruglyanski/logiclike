@@ -6,11 +6,13 @@ export const TagItem = React.memo<{
   item: string;
   isActive: boolean;
   onPress: (item: string) => void;
-}>(({ item, isActive, onPress }) => {
+  testID?: string;
+}>(({ item, isActive, onPress, testID }) => {
   const handlePress = useCallback(() => onPress(item), [item, onPress]);
-
+console.log('testId item', testID)
   return (
     <TouchableOpacity
+      testID={testID}
       style={[styles.tagItem, isActive && styles.active]}
       onPress={handlePress}
     >

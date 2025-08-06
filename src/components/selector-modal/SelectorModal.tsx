@@ -41,8 +41,9 @@ export const SelectorModal: FC<IProps> = ({
   const renderItem = useCallback(
     ({ item }: { item: string }) => (
       <TagItem
+        testID={testID ? `${testID}-tag-${item}` : undefined}
         isActive={item === selected || (item === ALL_THEMES_TITLE && !selected)}
-        {...{ onPress, item }}
+        {...{ onPress, item: `${testID}-tag-${item}` }}
       />
     ),
     [onPress, selected],
@@ -50,6 +51,7 @@ export const SelectorModal: FC<IProps> = ({
 
   return (
     <Modal
+      testID={testID}
       visible={isVisible}
       onRequestClose={onClose}
       supportedOrientations={SUPPORTED_ORIENTATIONS}
@@ -58,7 +60,7 @@ export const SelectorModal: FC<IProps> = ({
         <View style={styles.header}>
           <View style={styles.placeholderView} />
           <Text style={styles.title}>Выбор темы</Text>
-          <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+          <TouchableOpacity testID="selector-modal-close-button" onPress={onClose} style={styles.closeButton}>
             <Icon name="x" size={22} color={Colors.LIGHT_BLUE} />
           </TouchableOpacity>
         </View>
